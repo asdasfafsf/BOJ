@@ -1,14 +1,17 @@
 let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString();
+let input = fs.readFileSync('/dev/stdin').toString().trim();
 
-const num = BigInt(input
-            .split('')
-            .sort((a, b) => b - a)
-            .join(''));
+const nums = [...input]
+            .map(Number);
 
-
-if (num % BigInt(30) === BigInt(0)) {
-    console.log(num.toString());
-} else {
+if (nums.indexOf(0) == -1) {
     console.log(-1);
+} else {
+    const sum = nums.reduce( (p, c) => (p + c), 0);
+    
+    if (sum % 3 === 0 && sum !== 0) {
+        console.log(nums.sort((a, b) => b - a).join(''));
+    } else {
+        console.log(-1);
+    }
 }
