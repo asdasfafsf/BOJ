@@ -25,11 +25,9 @@ const recursion = (current, start) => {
         return;
     }
     for (let i = start; i < C; i++) {
-        if (visitedList[current] == '') {
-            visitedList[current] = arr[i];
-            recursion(current + 1, i + 1);
-            visitedList[current] = '';
-        }
+        visitedList[current] = arr[i];
+        recursion(current + 1, i + 1);
+        visitedList[current] = '';
     }
 }
 
