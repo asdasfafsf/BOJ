@@ -5,20 +5,18 @@ const input = fs.readFileSync('/dev/stdin')
                     .split('\n');
 
 const arr = input.slice(1).map(elem => elem.split(' ').map(Number));
-const cache = arr.map(elem => elem.map(elemElem => -1));
+const cache = arr.map(elem => new Array(elem.length).fill(false));
 
 
-const recursion = (y, x) => {
-    if (y === arr.length - 1) {
-        return arr[y][x];
+for (let i = arr.length - 2; i >= 0; i--) {
+    for (let j = 0; j < arr[i].length; j++) {
+        const value = arr[i][j]
+        const left = arr[i + 1][j];
+        const right = arr[i + 1][j + 1];
+
+        arr[i][j] = value + Math.max(left, right);
     }
-
-    if (cache[y][x] === -1) {
-        cache[y][x] = arr[y][x] + Math.max(recursion(y + 1, x), recursion(y + 1, x + 1));
-
-    }
-
-    return cache[y][x];
 }
 
-console.log(recursion(0, 0));
+
+console.log(arr[0][0]);
