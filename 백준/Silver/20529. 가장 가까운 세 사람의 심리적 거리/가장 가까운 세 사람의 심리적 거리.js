@@ -11,10 +11,10 @@ const answer = []
 
 const cal = (A, B) => {
     return (
-        +!!(A.charCodeAt(0) - B.charCodeAt(0))
-        +!!(A.charCodeAt(1) - B.charCodeAt(1))
-        +!!(A.charCodeAt(2) - B.charCodeAt(2))
-        +!!(A.charCodeAt(3) - B.charCodeAt(3))
+          ((A.charCodeAt(0) - B.charCodeAt(0)) && 1) 
+        + ((A.charCodeAt(1) - B.charCodeAt(1)) && 1) 
+        + ((A.charCodeAt(2) - B.charCodeAt(2)) && 1) 
+        + ((A.charCodeAt(3) - B.charCodeAt(3)) && 1) 
     )
 }
 
