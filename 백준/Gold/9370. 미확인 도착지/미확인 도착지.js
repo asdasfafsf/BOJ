@@ -96,8 +96,14 @@ for(let tt = 0; tt < T; tt++) {
 
     for (let i = 0; i < m; i++) {
         const [node1, node2, d] = input[++cur].split(' ').map(Number);
-        graph[node1].push([node2, d]);
-        graph[node2].push([node1, d]);
+        let calD = d;
+
+        if ((node1 === g && node2 === h) || (node2 === g && node1 === h)) {
+            calD = calD - 0.1;
+        }
+
+        graph[node1].push([node2, calD]);
+        graph[node2].push([node1, calD]);
     }
 
     const dest = [];
@@ -107,50 +113,33 @@ for(let tt = 0; tt < T; tt++) {
     }
     dest.sort((a, b) => a - b);
 
-    const dik = (s) => {
-        const visited = Array.from({length: n + 1}, () => false);
-        const dist = Array.from({length: n + 1}, () => Infinity);
-        const queue = new ProrityQueue();
+   
+    const visited = Array.from({length: n + 1}, () => false);
+    const routes = Array.from({length: n + 1}, () => -1);
+    const dist = Array.from({length: n + 1}, () => Infinity);
+    const queue = new ProrityQueue();
 
-        dist[s] = 0;
-        queue.enqueue([s, 0]);
+    dist[s] = 0;
+    queue.enqueue([s, 0]);
 
-        while(queue.isFull()) {
-            const [sNode, sData] = queue.dequeue();
+    while(queue.isFull()) {
+        const [sNode, sData] = queue.dequeue();
 
-            if (visited[sNode] === true) {
-                continue;
-            }
-
-            for (const [dNode, dData] of graph[sNode]) {
-                const newData = sData + dData;
-                if (dist[dNode] > newData) {
-                    dist[dNode] = newData;
-                    queue.enqueue([dNode, newData])
-                }
-            }
-        }
-
-        return dist;
-    }
-    const ans = []
-
-    const sDist = dik(s);
-    const gDist = dik(g);
-    const hDist = dik(h);
-    for (let i = 0; i < dest.length; i++) {
-        const target = dest[i];
-        if (sDist[target] === Infinity) {
+        if (visited[sNode] === true) {
             continue;
         }
 
-        if ( (sDist[g] + gDist[h] + hDist[target] === sDist[target]) 
-        || (sDist[h] + hDist[g] + gDist[target] === sDist[target])) {
-            ans.push(target)
+        for (const [dNode, dData] of graph[sNode]) {
+            const newData = sData + dData;
+            if (dist[dNode] > newData) {
+                dist[dNode] = newData;
+                queue.enqueue([dNode, newData])
+                routes[dNode] = sNode;
+            }
         }
     }
 
-    ans.sort((a, b) => a - b);
+    const ans = dest.filter(elem => Math.floor(dist[elem]) !== dist[elem]);
 
     answer.push(ans.join(' ').trim());
 }
