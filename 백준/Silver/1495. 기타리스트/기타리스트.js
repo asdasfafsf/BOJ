@@ -7,28 +7,33 @@ const input = fs
 
 const [N, S, M] = input[0].split(' ').map(Number);
 const volumes = input[1].split(' ').map(Number);
-const visited = Array.from({length: N + 1}, () => Array.from({length: 1001}, () => false))
+const dp = Array.from({length: N}, () => Array.from({length: 1001}, () => -1))
 
-let answer = -1;
 
-const recursion = (depth, volume) => {
-    if (depth === N) {
-        answer = Math.max(answer, volume);
-        return;
-    }
+if (S - volumes[0] > -1 && S - volumes[0] <= M) {
+    dp[0][S - volumes[0]] = S - volumes[0];
+}
 
-    const incOrDecVolume = volumes[depth];
-    const nextVolumes = [volume - incOrDecVolume, volume + incOrDecVolume];
-    const nextDepth = depth + 1;
+if (S + volumes[0] > -1 && S + volumes[0] <= M) {
+    dp[0][S + volumes[0]] = S + volumes[0];
+}
 
-    for (const nextVolume of nextVolumes) {
-        if (nextVolume > -1 && nextVolume <= M && visited[nextDepth][nextVolume] === false) {
-            visited[nextDepth][nextVolume] = true;
-            recursion(nextDepth, nextVolume);
+for (let i = 0; i < dp.length - 1; i++) {
+    for (let j = 0; j < dp[i].length; j++) {
+        const volume = dp[i][j];
+
+        if (volume == -1) {
+            continue;
+        }
+
+        const incOrDecVolume = volumes[i + 1];
+
+        for (const nextVolume of [volume - incOrDecVolume, volume + incOrDecVolume]) {
+            if (nextVolume > -1 && nextVolume <= M) {
+                dp[i + 1][nextVolume] = nextVolume;
+            }
         }
     }
 }
 
-recursion(0, S);
-
-console.log(answer)
+console.log(Math.max(...dp.at(-1)))
