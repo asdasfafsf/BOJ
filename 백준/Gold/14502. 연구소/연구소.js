@@ -11,12 +11,14 @@ const arr = input.slice(1).map(elem => elem.split(' ').map(Number));
 let answer = 0;
 const dp = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 
-const recursion = (depth) => {
+const setupWall = (depth, current) => {
     if (depth === 3) {
         const history = [];
         for (let i = 0; i < N; i++) {
             for (let j = 0; j < M; j++) {
-                expand(i, j, arr, history);
+                if (arr[i][j] === 2) {
+                    spread(i, j, arr, history);
+                }
             }
         }
 
@@ -38,22 +40,19 @@ const recursion = (depth) => {
     }
 
 
-    for (let i = 0; i < N; i++) {
-        for (let j = 0; j < M; j++) {
-            if (arr[i][j] === 0) {
-                arr[i][j] = 1;
-                recursion(depth + 1);
-                arr[i][j] = 0;
-            }
+    for (let i = current; i < N * M; i++) {
+        const x = i % M;
+        const y = Math.floor(i / M);
+        if (arr[y][x] === 0) {
+            arr[y][x] = 1;
+            setupWall(depth + 1, i + 1);
+            arr[y][x] = 0;
         }
     }
+
 }
 
-const expand = (y, x, arr, history) => {
-    if (arr[y][x] !== 2) {
-        return;
-    }
-
+const spread = (y, x, arr, history) => {
     for (const [dy, dx] of dp) {
         const [ty, tx] = [y + dy, x + dx];
 
@@ -61,13 +60,12 @@ const expand = (y, x, arr, history) => {
             if (arr[ty][tx] === 0) {
                 arr[ty][tx] = 2;
                 history.push([ty, tx]);
-                expand(ty, tx, arr, history);
+                spread(ty, tx, arr, history);
             }
         }
     }
 }
 
-recursion(0)
+setupWall(0, 0)
 
 console.log(answer);
-
