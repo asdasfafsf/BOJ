@@ -8,21 +8,10 @@ const [n, ...testCases] = require('fs')
 
 
 const max = Math.max(...testCases);
-const dp = [0, 1, 2, 3, 4, 5];
+const dp = [0, 1, 2];
 
-
-let added = 1;
 for (let i = dp.length; i <= max; i++) {
-    let tail = 0;
-    if (i % 6 === 0) {
-        tail = 1;
-    }
-
-    if (i % 6 === 2) {
-        added++;
-    }
-
-    dp[i] = dp[i - 1] + added + tail;
+    dp[i] = dp[i - 1] + Math.ceil((i - 1) / 6) + (((i % 6) && 1 ) ^ 1);
 }
 
 
