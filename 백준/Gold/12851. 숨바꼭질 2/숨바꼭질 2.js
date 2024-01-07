@@ -12,23 +12,29 @@ const times = Array.from({length: 1000001}, () => Infinity);
 times[N] = 0;
 
 
+
 let current = 0;
 let count = 0;
 while (queue.length !== current) {
     const [node, time] = queue[current];
 
-    if (time > times[node]) {
+
+    if (node === K) {
+        if (time === times[node]) {
+            count++;
+        } else if (time < times[node]){
+            count = 1;
+        }
+
+        current++;
         continue;
     }
 
-    if (node === K) {
-        count++;
-    }
-
-    for (const [nextNode, nextTime] of [[node * 2, time + 1],[node + 1, time + 1],[node - 1, time + 1]]) {
+    const nextTime = time + 1;
+    for (const nextNode of [node + 1, node - 1, node * 2]) {
         if (times[nextNode] >= nextTime) {
-            queue.push([nextNode, nextTime]);
             times[nextNode] = nextTime;
+            queue.push([nextNode, nextTime]);
         }
     }
 
@@ -37,3 +43,4 @@ while (queue.length !== current) {
 
 console.log(times[K]);
 console.log(count);
+
