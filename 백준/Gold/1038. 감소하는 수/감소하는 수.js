@@ -6,10 +6,8 @@ const input = require('fs')
 
 const N = +input;
 
-let count = 9;
 const queue = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let current = 1;
-let answer = -1;
 
 while (queue.length !== current) {
     const data = queue[current];
@@ -17,10 +15,6 @@ while (queue.length !== current) {
 
     for (let i = 0; i < target; i++) {
         queue.push(`${data}${i}`);
-
-        if (count === N) {
-            answer = `${data}${i}`;
-        }
     }
 
     current++;
