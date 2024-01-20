@@ -137,11 +137,5 @@ const dks = (start, ignoreWatch) => {
     return dist;
 }
 
-const zeroDists = dks(0, false);
-const answer = startPoints
-    .filter(elem => zeroDists[elem] !== Infinity)
-    .map(elem => zeroDists[elem] + dks(elem, true)[N - 1])
-    .reduce((pv, cv) => pv > cv ? cv : pv, Infinity);
-
-
-console.log( (answer === Infinity ? -1 : answer).toString())
+const zeroDists = dks(0, true);
+console.log( (zeroDists.at(-1) === Infinity ? -1 : zeroDists.at(-1)).toString())
