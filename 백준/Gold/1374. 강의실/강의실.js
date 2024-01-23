@@ -100,29 +100,18 @@ lectures.sort((a, b) => {
     return start1 - start2;
 })
 
-// console.log(lectures)
 
-let answer = 1;
+let answer = 0;
 const priorityQueue = new PriorityQueue();
-priorityQueue.enqueue(lectures[0])
+// priorityQueue.enqueue(lectures[0])
 
-for (let i = 1; i < lectures.length; i++) {
+for (let i = 0; i < lectures.length; i++) {
     const [no, start, end] = lectures[i];
-    priorityQueue.enqueue([no, start, end]);
-    let [tNo, tStart, tEnd] = [];
-    let count = -1;
+    priorityQueue.enqueue(lectures[i]);
 
     while (priorityQueue.front()[2] <= start) {
-        [tNo, tStart, tEnd] = priorityQueue.dequeue();
-        // console.log(`끝난 강의 ------ 시작시간 : ${tStart}  끝 시간 : ${tEnd}`)
-        count++;
+        priorityQueue.dequeue();
     }
-
-    // priorityQueue.enqueue([tNo, tStart, tEnd])
-
-    // console.log(`현재 강의는 ${start}시에 시작해서 ${end}시에 끝납니다.`)
-    // console.log(priorityQueue.heap)
-    // console.log('');
    
     answer = Math.max(answer, priorityQueue.length())
 }
