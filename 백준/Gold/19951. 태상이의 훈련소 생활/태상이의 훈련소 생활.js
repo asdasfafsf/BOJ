@@ -15,14 +15,10 @@ for (const order of orders) {
     changes[end] -= depth
 }
 
-let sum = changes[0];
-for (let i = 1; i < changes.length; i++) {
+let sum = 0;
+for (let i = 0; i < changes.length - 1; i++) {
     sum += changes[i];
-    changes[i] = sum;
-}
-
-for (let i = 0; i < ground.length; i++) {
-    ground[i] += changes[i]
+    ground[i] += sum;
 }
 
 console.log(ground.join(' '))
