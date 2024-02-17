@@ -22,13 +22,10 @@ for (let i = 0; i < input.length; i++) {
         const char1 = input.charAt(y);
         const char2 = input.charAt(x);
 
-        const ty1 = y + 1;
-        const tx1 = y + 1;
-
         const ty2 = y + 1;
         const tx2 = (x - y) === 1 ? x : x - 1;
 
-        if (char1 === char2 && check[ty1][tx1] === 1 && check[ty2][tx2] === 1) {
+        if (char1 === char2 && check[ty2][tx2] === 1) {
             check[y][x] = 1;
         }
     }
