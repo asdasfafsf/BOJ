@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 24540 KB, 시간: 696 ms
+메모리: 21004 KB, 시간: 636 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2024년 2월 13일 19:11:13
+2024년 2월 18일 15:43:51
 
 ### 문제 설명
 
@@ -81,9 +81,9 @@
 	<tbody>
 		<tr>
 			<td style="text-align:center"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/12094/17.png" style="height:250px; width:248px"></td>
-			<td style="text-align:center"><img alt="" src="" style="height:250px; width:252px"></td>
+			<td style="text-align:center"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/12094/18.png" style="height:250px; width:252px"></td>
 			<td style="text-align:center"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/12094/19.png" style="height:250px; width:250px"></td>
-			<td style="text-align:center"><img alt="" src="" style="height:250px; width:250px"></td>
+			<td style="text-align:center"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/12094/20.png" style="height:250px; width:250px"></td>
 		</tr>
 	</tbody>
 	<tfoot>
