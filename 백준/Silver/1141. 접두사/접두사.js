@@ -5,13 +5,13 @@ const input = require('fs')
     .split('\n');
 
 const N = input.shift();
-input.sort((a, b) => b.localeCompare(a));
+input.sort();
 
 let answer = N;
 
-for (let i = 0; i < input.length - 1; i++) {
+for (let i = input.length - 1; i > 0; i--) {
     const str = input[i];
-    const str2 = input[i + 1]
+    const str2 = input[i - 1]
 
     if (str.startsWith(str2)) {
         answer--;
