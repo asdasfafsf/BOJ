@@ -51,7 +51,7 @@ const results = Object
     .entries(map)
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(elem => {
-        return `${elem[0]} ${elem[1].length} ${elem[1].join(' ')}`.trim()
+        return `${elem[0]} ${elem[1].length} ${elem[1].sort((a, b) => a.localeCompare(b)).join(' ')}`.trim()
     });
 
 console.log(answer.join('\n'))
