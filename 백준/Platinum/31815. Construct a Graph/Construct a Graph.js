@@ -6,74 +6,55 @@ const input = require('fs')
     .map(elem => elem.trim());
 
 const N = +input[0];
-const dist = [];
-const ori = []
-let isOk = true;
+const D = [];
+for (let i = 1; i <= N; i++) {
+    D.push(input[i].split(' ').map(Number));
+}
 
+// 행렬 D가 유효한지 확인
+let isValid = true;
+for (let i = 0; i < N; i++) {
+    for (let j = 0; j < N; j++) {
+        if (D[i][j] !== D[j][i] || (i !== j && D[i][j] <= 0)) {
+            isValid = false;
+            break;
+        }
+    }
+}
 
-for (let i = 1; i < input.length; i++) {
-    dist.push(input[i].trim().split(' ').map(elem => elem.trim()).map(Number));
-    ori.push (input[i].trim().split(' ').map(elem => elem.trim()).map(Number));
+if (!isValid) {
+    console.log(-1);
+    process.exit(0)
 }
 
 for (let k = 0; k < N; k++) {
     for (let i = 0; i < N; i++) {
         for (let j = 0; j < N; j++) {
-            if (dist[i][j] > dist[i][k] + dist[k][j]) {
-                dist[i][j] = dist[i][k] + dist[k][j];
-                isOk = false;
+            if (D[i][j] > D[i][k] + D[k][j]) {
+                console.log(-1);
+                process.exit(0);
             }
         }
     }
 }
 
-// console.log(dist);
-
-if (isOk) {
-    const parents = Array.from(Array(N), (_, k) => k);
-    const find = a => {
-        if (parents[a] === a) {
-            return a;
+const edges = [];
+for (let i = 0; i < N; i++) {
+    for (let j = i + 1; j < N; j++) {
+        let isDirectEdge = true;
+        for (let k = 0; k < N; k++) {
+            if (k !== i && k !== j && D[i][j] === D[i][k] + D[k][j]) {
+                isDirectEdge = false;
+                break;
+            }
         }
-        return parents[a] = find(parents[a]);
-    }
-
-    const union = (a, b) => {
-        a = find(a);
-        b = find(b);
-
-        if (a === b) {
-            return;
-        }
-
-        parents[Math.max(a, b)] = Math.min(a, b);
-    }
-
-    const nodes = []
-    for (let y = 0; y < N; y++) {
-        for (let x = 0; x < N; x++) {
-            nodes.push([y, x, dist[y][x]]);
+        if (isDirectEdge) {
+            edges.push([i + 1, j + 1, D[i][j]]);
         }
     }
-
-    nodes.sort((a, b) => a[2] - b[2]);
-    // console.log(nodes)
-    const answer = [];
-    for (const [a, b, w] of nodes) {
-        if (find(a) === find(b)) {
-            continue;
-        }
-
-        union(a, b);
-        answer.push([a, b, w]);
-    }
-
-    if (answer.length) {
-        console.log(answer.length);
-        console.log(answer.map(elem => `${elem[0] + 1} ${elem[1] + 1} ${elem[2]}`).join('\n'))
-    } else {
-        console.log(-1)
-    }
-} else {
-    console.log(-1);
 }
+
+console.log(edges.length);
+edges.forEach(edge => {
+    console.log(edge.join(' '));
+});
