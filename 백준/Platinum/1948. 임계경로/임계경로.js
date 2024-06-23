@@ -3,7 +3,7 @@ const input = require('fs')
   .toString()
   .trim()
   .split('\n');
-  
+
 const n = +input[0];
 const m = +input[1];
 
@@ -28,14 +28,17 @@ for (let i = 1; i <= n; i++) {
   if (inDegree[i] === 0) topoQueue.push(i);
 }
 
-while (topoQueue.length) {
-  const node = topoQueue.shift();
+let current = 0;
+while (topoQueue.length !== current) {
+  const node = topoQueue[current]
   topoOrder.push(node);
 
   for (const [next, time] of graph[node]) {
     inDegree[next]--;
     if (inDegree[next] === 0) topoQueue.push(next);
   }
+
+  current++;
 }
 
 dist[start] = 0;
@@ -50,7 +53,6 @@ for (const node of topoOrder) {
 const longestPath = dist[end];
 let roadCount = 0;
 
-// 최장 경로 역추적
 const visited = Array(n + 1).fill(false);
 const stack = [end];
 visited[end] = true;
