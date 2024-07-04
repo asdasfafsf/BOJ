@@ -38,7 +38,7 @@
 
 <p>그림으로 설명하면 아래와 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/15671/1.png" style="width: 301px; height: 278px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="width: 301px; height: 278px;"></p>
 
 <p>위와 같은 상태의 게임판에서 시작하여, 검은 돌부터 차례를 이어나간다. 파랗게 표시한 부분은 검은 돌을 놓을 수 있는 영역(최소 하나의 하얀 돌을 검은 돌 두 개 사이에 넣을 수 있는 곳)이며, 빨갛게 표시한 부분은 검은 돌을 놓을 수 없는 영역의 예시이다.</p>
 
@@ -46,7 +46,7 @@
 
 <p>이때, 상대 돌을 포위하는 것은 가로, 세로, 대각선 8방향 모두에서 이루어질 수 있으며, 반드시 하나의 돌만을 감싸야 하는 것은 아니다. 예시를 들면 아래와 같다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/15671/2.png" style="width: 329px; height: 308px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="width: 329px; height: 308px;"></p>
 
 <p>만약 검은 돌이 파란 위치에 돌을 놓는다면, 내부에 O 표시가 있는 모든 하얀 돌은 양 끝이 검은 돌로 막혔으므로 검은색으로 변하게 된다. X 표시가 있는 두 하얀 돌은 양 끝이 직접 막히지 않았으므로 변하지 않는다.</p>
 
