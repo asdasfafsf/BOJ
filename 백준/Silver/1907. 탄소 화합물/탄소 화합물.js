@@ -10,7 +10,7 @@ const b = input.split('=')[0].split('+')[1].trim();
 const c = input.split('=')[1].trim();
 
 
-function getCount(str, num) {
+function getCountMap(str) {
     const map = {'C': 0, 'H': 0, 'O': 0};
 
     for (let i = 0; i < str.length; i++) {
@@ -19,43 +19,42 @@ function getCount(str, num) {
         if ('CHO'.includes(ch)) {
             map[ch]++;
         } else {
-            let len = 0;
-            let current = '';
+            const prev = str.charAt(i - 1);
+            let currentNum = '';
 
-            while (!'CHO'.includes(str.charAt(i + len))) {
-                current += str.charAt(i + len);
-                len++;
+            while (!'CHO'.includes(str.charAt(i))) {
+                currentNum += str.charAt(i);
+                i++
             }
-
-            map[str.charAt(i - 1)] += (Number(current) - 1);
-            i += len - 1;
+            map[prev] += (Number(currentNum) - 1);
+            i--;
         }
     }
-
-    ['C','H','O'].forEach(elem => map[elem] = map[elem] * num);
 
     return map;
 }
 
 
+const map1 = getCountMap(a);
+const map2 = getCountMap(b);
+const map3 = getCountMap(c);
+
+
+const current = [map3.C, map3.H, map3.O];
 for (let m1 = 1; m1 <= 10; m1++) {
-    const map1 = getCount(a, m1);
 
     for (let m2 = 1; m2 <= 10; m2++) {
-        const map2 = getCount(b, m2);
 
         for (let m3 = 1; m3 <= 10; m3++) {
-            const map3 = getCount(c, m3);
-        
-            Object.keys(map3).forEach(elem => {
-                map3[elem] -= map2[elem];
-                map3[elem] -= map1[elem];
+            ['C', 'H', 'O'].forEach((elem, index) => {
+                current[index] = map3[elem] * m3;
+                current[index] -= map2[elem] * m2;
+                current[index] -= map1[elem] * m1;
             })
 
-        
-            if (map3.C === 0 && map3.H === 0 && map3.O === 0) {
+            if (current.join('') === '000') {
                 console.log(`${m1} ${m2} ${m3}`);
-                process.exit(0)
+                process.exit(0);
             }
         }
     }
