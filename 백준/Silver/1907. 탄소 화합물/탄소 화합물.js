@@ -34,13 +34,9 @@ function getCount(str, num) {
 
     ['C','H','O'].forEach(elem => map[elem] = map[elem] * num);
 
-    return map
+    return map;
 }
 
-// console.log(getCount('CCCC2', 2))
-// console.log(getCount('H250O1OO4O2O2C240C', 1))
-
-const answer = [];
 
 for (let m1 = 1; m1 <= 10; m1++) {
     const map1 = getCount(a, m1);
@@ -58,12 +54,10 @@ for (let m1 = 1; m1 <= 10; m1++) {
 
         
             if (map3.C === 0 && map3.H === 0 && map3.O === 0) {
-                answer.push(`${m1} ${m2} ${m3}`);
+                console.log(`${m1} ${m2} ${m3}`);
+                process.exit(0)
             }
         }
     }
 }
 
-
-answer.sort((a, b) => a.localeCompare(b));
-console.log((answer[0] ?? 'NEMOGUCE').trim())
