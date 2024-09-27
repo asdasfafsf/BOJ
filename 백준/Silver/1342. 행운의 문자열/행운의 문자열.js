@@ -11,6 +11,7 @@ for (let i = 0; i < input.length; i++) {
 
 const target = [...new Set(input)].join('');
 let answer = 0;
+
 const recursion = (depth, last) => {
     if (depth === input.length) {
         answer++;
