@@ -13,12 +13,12 @@ dp[0][0] = 0;
 
 for (const [direction, energy] of actions) {
 
-   for (let k = 0; k <= K - energy; k++) {
+   for (let k = energy; k <= K; k++) {
       for (let d = 0; d < 4; d++) {
-         if (dp[d][k] !== Infinity) {
-            dp[(d + direction) % 4][k + energy] = Math.min(
-               dp[d][k] + 1, 
-               dp[(d + direction) % 4][k + energy]
+         if (dp[d][k - energy] !== Infinity) {
+            dp[(d + direction) % 4][k] = Math.min(
+               dp[d][k - energy] + 1, 
+               dp[(d + direction) % 4][k]
             );
          }
       }
