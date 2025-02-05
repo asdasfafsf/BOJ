@@ -7,9 +7,9 @@ const [[N], stoneStatues] = require('fs')
 
 
 const dp = Array(N + 1).fill(0);
-const minDp = Array(N + 1).fill(0);
-const maxDp = Array(N + 1).fill(0);
 
+let min = 0;
+let max = 0;
 for (let i = 1; i <= N; i++) {
     const elem = stoneStatues[i - 1];
 
@@ -19,8 +19,8 @@ for (let i = 1; i <= N; i++) {
         dp[i] = dp[i - 1] - 1;
     }
 
-    maxDp[i] = Math.max(dp[i], maxDp[i - 1]);
-    minDp[i] = Math.min(dp[i], minDp[i - 1]);
+    max = Math.max(dp[i], max);
+    min = Math.min(dp[i], min);
 }
 
-console.log(maxDp[N] - minDp[N])
+console.log(max - min);
