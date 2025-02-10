@@ -1,0 +1,11 @@
+SELECT concat(MAX(LENGTH), 'cm') as MAX_LENGTH
+FROM FISH_INFO 
+WHERE LENGTH IS NOT NULL
+
+
+
+
+
+
+
+
