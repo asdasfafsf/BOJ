@@ -91,7 +91,7 @@ times.sort((a, b) => {
 });
 
 
-const queue = new PriorityQueue(1);
+const queue = new PriorityQueue();
 queue.enqueue(times[0][1]);
 let answer = 1;
 for (let i = 1; i < times.length; i++) {
