@@ -1,0 +1,24 @@
+SELECT
+    COUNT(*) AS FISH_COUNT,
+    MAX(LENGTH) AS MAX_LENGTH,
+    FISH_TYPE
+FROM
+    (SELECT
+        FISH_TYPE,
+        (CASE
+            WHEN LENGTH IS NULL THEN 10
+            WHEN LENGTH <= 10 THEN 10
+            ELSE LENGTH
+        END) AS LENGTH
+    FROM
+        FISH_INFO
+    ) AS FISH_INFO
+GROUP BY
+    FISH_TYPE
+HAVING
+    AVG(LENGTH) >= 33
+ORDER BY
+    FISH_TYPE ASC
+    
+
+    
