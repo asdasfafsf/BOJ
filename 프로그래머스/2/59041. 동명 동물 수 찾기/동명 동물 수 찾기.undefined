@@ -1,0 +1,18 @@
+-- 코드를 입력하세요
+SELECT
+    NAME,
+    COUNT
+    
+FROM (SELECT
+        NAME AS NAME,
+        COUNT(*) AS COUNT
+    FROM
+        ANIMAL_INS
+    WHERE
+        NAME IS NOT NULL
+    GROUP BY
+        NAME) AS ANIMAL_INS
+WHERE
+    COUNT > 1
+ORDER BY
+    NAME
