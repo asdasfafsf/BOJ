@@ -20,5 +20,6 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [0596-classes-more-than-5-students](https://github.com/asdasfafsf/BOJ/tree/master/0596-classes-more-than-5-students) |
 | [0607-sales-person](https://github.com/asdasfafsf/BOJ/tree/master/0607-sales-person) |
 | [0610-triangle-judgement](https://github.com/asdasfafsf/BOJ/tree/master/0610-triangle-judgement) |
+| [0620-not-boring-movies](https://github.com/asdasfafsf/BOJ/tree/master/0620-not-boring-movies) |
 | [1179-game-play-analysis-i](https://github.com/asdasfafsf/BOJ/tree/master/1179-game-play-analysis-i) |
 <!---LeetCode Topics End-->
