@@ -22,5 +22,6 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [0610-triangle-judgement](https://github.com/asdasfafsf/BOJ/tree/master/0610-triangle-judgement) |
 | [0620-not-boring-movies](https://github.com/asdasfafsf/BOJ/tree/master/0620-not-boring-movies) |
 | [0627-swap-salary](https://github.com/asdasfafsf/BOJ/tree/master/0627-swap-salary) |
+| [1136-actors-and-directors-who-cooperated-at-least-three-times](https://github.com/asdasfafsf/BOJ/tree/master/1136-actors-and-directors-who-cooperated-at-least-three-times) |
 | [1179-game-play-analysis-i](https://github.com/asdasfafsf/BOJ/tree/master/1179-game-play-analysis-i) |
 <!---LeetCode Topics End-->
