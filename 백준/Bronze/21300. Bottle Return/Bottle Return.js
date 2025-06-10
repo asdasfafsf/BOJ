@@ -1,0 +1,6 @@
+const nums = require('fs')
+    .readFileSync(0,'utf-8')
+    .trim()
+    .split(' ')
+    .map(Number)
+console.log(nums.reduce((s,i)=>s+i,0)*5)
