@@ -38,4 +38,5 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [1541-top-travellers](https://github.com/asdasfafsf/BOJ/tree/master/1541-top-travellers) |
 | [1625-group-sold-products-by-the-date](https://github.com/asdasfafsf/BOJ/tree/master/1625-group-sold-products-by-the-date) |
 | [1724-customer-who-visited-but-did-not-make-any-transactions](https://github.com/asdasfafsf/BOJ/tree/master/1724-customer-who-visited-but-did-not-make-any-transactions) |
+| [1734-bank-account-summary-ii](https://github.com/asdasfafsf/BOJ/tree/master/1734-bank-account-summary-ii) |
 <!---LeetCode Topics End-->
