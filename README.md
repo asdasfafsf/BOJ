@@ -41,4 +41,5 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [1734-bank-account-summary-ii](https://github.com/asdasfafsf/BOJ/tree/master/1734-bank-account-summary-ii) |
 | [1773-percentage-of-users-attended-a-contest](https://github.com/asdasfafsf/BOJ/tree/master/1773-percentage-of-users-attended-a-contest) |
 | [1801-average-time-of-process-per-machine](https://github.com/asdasfafsf/BOJ/tree/master/1801-average-time-of-process-per-machine) |
+| [1811-fix-names-in-a-table](https://github.com/asdasfafsf/BOJ/tree/master/1811-fix-names-in-a-table) |
 <!---LeetCode Topics End-->
