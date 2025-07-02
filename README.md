@@ -44,4 +44,5 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [1811-fix-names-in-a-table](https://github.com/asdasfafsf/BOJ/tree/master/1811-fix-names-in-a-table) |
 | [1827-invalid-tweets](https://github.com/asdasfafsf/BOJ/tree/master/1827-invalid-tweets) |
 | [1877-find-followers-count](https://github.com/asdasfafsf/BOJ/tree/master/1877-find-followers-count) |
+| [1882-the-number-of-employees-which-report-to-each-employee](https://github.com/asdasfafsf/BOJ/tree/master/1882-the-number-of-employees-which-report-to-each-employee) |
 <!---LeetCode Topics End-->
