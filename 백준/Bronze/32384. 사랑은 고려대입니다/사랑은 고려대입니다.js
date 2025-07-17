@@ -1,0 +1,5 @@
+const input = require('fs')
+    .readFileSync(0, 'utf-8')
+    .trim()
+const N = Number(input)
+console.log(Array(N).fill('LoveisKoreaUniversity').join(' '))
