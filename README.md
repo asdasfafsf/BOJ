@@ -53,4 +53,5 @@ solvedac.hyp3rflow.vercel.app/api/?handle={asdasfafsf}"></br></br>
 | [2041-the-latest-login-in-2020](https://github.com/asdasfafsf/BOJ/tree/master/2041-the-latest-login-in-2020) |
 | [2110-employees-with-missing-information](https://github.com/asdasfafsf/BOJ/tree/master/2110-employees-with-missing-information) |
 | [2127-employees-whose-manager-left-the-company](https://github.com/asdasfafsf/BOJ/tree/master/2127-employees-whose-manager-left-the-company) |
+| [2495-number-of-unique-subjects-taught-by-each-teacher](https://github.com/asdasfafsf/BOJ/tree/master/2495-number-of-unique-subjects-taught-by-each-teacher) |
 <!---LeetCode Topics End-->
