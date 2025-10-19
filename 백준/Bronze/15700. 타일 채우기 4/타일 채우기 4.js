@@ -1,0 +1,8 @@
+const input = require('fs')
+    .readFileSync(0, 'utf-8')
+    .toString()
+    .trim()
+    .split(' ')
+const N = BigInt(input[0])
+const M = BigInt(input[1])
+console.log((N * M / 2n).toString())
